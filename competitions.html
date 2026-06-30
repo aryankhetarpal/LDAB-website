@@ -1,0 +1,554 @@
+<!-- =========================
+COMPETITIONS PAGE
+Save as: competitions.html
+========================= -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Competitions | Les Danseuses Academy</title>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+
+    /* NAVBAR */
+/* TOP LOGO */
+
+/* TOP LOGO */
+
+.logo-wrap{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px 0 10px;
+  background:white;
+}
+
+.logo-wrap img{
+  width:320px;
+  max-width:90%;
+  height:auto;
+  display:block;
+  object-fit:contain;
+}
+
+header{
+border-top:1px solid #eee;
+border-bottom:1px solid #eee;
+background:white;
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+nav{
+max-width:1200px;
+margin:auto;
+display:flex;
+justify-content:center;
+gap:45px;
+padding:18px 20px;
+}
+
+nav a{
+text-decoration:none;
+color:#111;
+font-size:14px;
+font-weight:600;
+letter-spacing:1px;
+transition:.3s;
+}
+
+nav a:hover{
+color:#587576;
+}
+
+    /* =========================
+       PAGE HERO
+    ========================= */
+
+    .page-hero{
+      height: 55vh;
+      background:
+      linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+      url('https://images.unsplash.com/photo-1518834107812-67b0b7c58434?q=80&w=1600&auto=format&fit=crop') center/cover;
+      
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+
+      color:white;
+      padding:0 8%;
+    }
+
+    .page-hero-content h1{
+      font-size:4rem;
+      margin-bottom:18px;
+      font-weight:300;
+      letter-spacing:2px;
+    }
+
+    .page-hero-content p{
+      max-width:700px;
+      margin:auto;
+      line-height:1.8;
+      font-size:1.05rem;
+    }
+
+    /* =========================
+       CONTENT SECTION
+    ========================= */
+
+    /* CARD ROW */
+
+.competition-row{
+  display:flex;
+  align-items:stretch;
+
+  background:white;
+
+  border-radius:28px;
+  overflow:hidden;
+
+  box-shadow:0 10px 35px rgba(0,0,0,0.08);
+
+  margin-bottom:50px;
+}
+
+/* IMAGE SIDE */
+
+.competition-image{
+  width:42%;
+  flex-shrink:0;
+}
+
+.competition-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+
+  min-height:340px;
+}
+
+/* TEXT SIDE */
+
+.competition-content{
+  width:58%;
+
+  padding:50px;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.competition-content h2{
+  font-size:2.2rem;
+  color:#587576;
+  margin-bottom:20px;
+  font-weight:300;
+}
+
+.competition-content p{
+  line-height:1.9;
+  color:#666;
+  margin-bottom:18px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+  .competition-row{
+    flex-direction:column;
+  }
+
+  .competition-image,
+  .competition-content{
+    width:100%;
+  }
+
+  .competition-image img{
+    min-height:260px;
+  }
+
+}
+    .competition-section{
+      padding:100px 8%;
+      background:#fff;
+    }
+
+    .competition-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:40px;
+      margin-top:60px;
+    }
+
+    .competition-card{
+      background:white;
+      border-radius:28px;
+      overflow:hidden;
+      box-shadow:0 10px 35px rgba(0,0,0,0.08);
+      transition:0.4s ease;
+    }
+
+    .competition-card:hover{
+      transform:translateY(-8px);
+    }
+
+    .competition-card img{
+      width:100%;
+      height:280px;
+      object-fit:cover;
+    }
+
+    .competition-card-content{
+      padding:34px;
+    }
+
+    .competition-card-content h3{
+      font-size:1.6rem;
+      color:#587576;
+      margin-bottom:14px;
+      font-weight:500;
+    }
+
+    .competition-card-content p{
+      line-height:1.8;
+      color:#666;
+      margin-bottom:24px;
+    }
+
+    .explore-btn {
+  margin-top: 14px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  padding: 12px 22px;
+
+  border: 1.5px solid #587576;
+  border-radius: 40px;
+
+  background: white;
+  color: #587576;
+
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+
+  width: fit-content;
+
+  transition: all 0.35s ease;
+}
+
+.explore-btn span {
+  transition: transform 0.35s ease;
+}
+
+/* Pointe Shoe */
+.explore-btn .pointe-icon {
+  width: 42px;
+  height: 42px;
+
+  min-width: 42px;
+
+  object-fit: contain;
+  display: block;
+
+  background: transparent;
+}
+
+/* Hover */
+.explore-btn:hover {
+  background: #587576;
+  color: white;
+}
+
+.explore-btn:hover span {
+  transform: translateX(4px);
+}
+
+.explore-btn:hover .pointe-icon {
+  transform: translateX(-5px) rotate(-6deg);
+}
+    /* =========================
+       FEATURE SECTION
+    ========================= */
+
+    .feature-section{
+      padding:110px 8%;
+      background:#f7f9f9;
+    }
+
+    .feature-container{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:60px;
+      align-items:center;
+    }
+
+    .feature-container img{
+      width:100%;
+      border-radius:30px;
+      height:520px;
+      object-fit:cover;
+    }
+
+    .feature-text h2{
+      font-size:3rem;
+      color:#587576;
+      margin-bottom:25px;
+      font-weight:300;
+    }
+
+    .feature-text p{
+      line-height:2;
+      color:#666;
+      margin-bottom:20px;
+    }
+
+    /* =========================
+       BUTTON
+    ========================= */
+
+    .explore-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+
+      padding:10px 20px;
+
+      border:1.5px solid #587576;
+      border-radius:40px;
+
+      text-decoration:none;
+      color:#587576;
+
+      font-size:0.92rem;
+      font-weight:500;
+
+      transition:0.35s ease;
+      background:white;
+    }
+
+    .explore-btn:hover{
+      background:#587576;
+      color:white;
+    }
+
+    .pointe-icon{
+      width:34px;
+      height:34px;
+      object-fit:contain;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media(max-width:900px){
+
+      .feature-container{
+        grid-template-columns:1fr;
+      }
+
+      .feature-text h2{
+        font-size:2.2rem;
+      }
+
+      .page-hero-content h1{
+        font-size:2.8rem;
+      }
+
+    }
+
+  </style>
+
+</head>
+<body>
+    <!-- TOP LOGO -->
+<div class="logo-wrap">
+<img src="https://lh3.googleusercontent.com/d/1RoMjfZqkDdOmf64hd-ftinPytb_ydGoz">
+</div>
+
+<!-- =========================
+NAVBAR
+========================= -->
+
+<!-- NAVBAR -->
+<header>
+<nav>
+<a href="index.html">HOME</a>
+<a href="#about">ABOUT US</a>
+<a href="certifications.html">CERTIFICATIONS</a>
+<a href="competitions.html">COMPETITIONS</a>
+<a href="#performances">PERFORMANCES</a>
+<a href="#testimonials">TESTIMONIALS</a>
+<a href="#examinations">EXAMINATIONS</a>
+<a href="#contact">CONTACT</a>
+</nav>
+</header>
+
+<!-- =========================
+HERO
+========================= -->
+
+<section class="page-hero">
+
+  <div class="page-hero-content">
+
+    <h1>Competitions</h1>
+
+    <p>
+      Elite training for dancers seeking performance excellence,
+      artistry, confidence and stage experience through prestigious ballet competitions.
+    </p>
+
+  </div>
+
+</section>
+
+<!-- =========================
+FEATURE SECTION
+========================= -->
+
+<section class="feature-section">
+
+  <div class="feature-container">
+
+    <img src="https://images.unsplash.com/photo-1508804185872-d7badad00f7d?q=80&w=1600&auto=format&fit=crop" alt="Competition Ballet">
+
+    <div class="feature-text">
+
+      <h2>Training Beyond Technique</h2>
+
+      <p>
+        Our competition program is designed for dedicated dancers
+        who wish to refine classical technique while developing
+        stage artistry, musicality and performance confidence.
+      </p>
+
+      <p>
+        Students receive professional coaching, rehearsal guidance
+        and individualized corrections in a disciplined and inspiring environment.
+      </p>
+
+
+        <a href="index.html#contact" class="explore-btn">
+      <span>Explore More</span>
+
+      <img 
+        src="https://lh3.googleusercontent.com/d/1Is9-U_lHXlmMlglJPod_RoRmUMo75-0s" 
+        alt="" 
+        class="pointe-icon"
+      >
+    </a>
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =========================
+COMPETITION CARD LAYOUT
+Image Left | Description Right
+========================= -->
+
+<section class="competition-section">
+
+  <div class="competition-wrapper">
+
+    <!-- CARD 1 -->
+    <div class="competition-row">
+
+      <div class="competition-image">
+        <img src="https://lh3.googleusercontent.com/d/1hGayF5D2Rhj1YQVHMFiXRE7Z0tdPNrKM">
+      </div>
+
+      <div class="competition-content">
+
+        <h2>CSTD</h2>
+
+        <p>
+          Our dancers receive elite coaching and preparation
+          for prestigious international ballet competitions,
+          building confidence, artistry and technical excellence.
+        </p>
+
+        <p>
+          Students are guided through rehearsals,
+          performance preparation and stage presentation
+          in a disciplined professional environment.
+        </p>
+
+        <a href="#" class="explore-btn">
+
+          <span>Explore More</span>
+
+          <img 
+          src="https://lh3.googleusercontent.com/d/1Is9-U_lHXlmMlglJPod_RoRmUMo75-0s"
+          class="pointe-icon">
+
+        </a>
+
+      </div>
+
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="competition-row">
+
+      <div class="competition-image">
+        <img src="https://lh3.googleusercontent.com/d/1UiKyENOySs26VtQUjfpTiSjZmCYCIWVu">
+      </div>
+
+      <div class="competition-content">
+
+        <h2>ISTD</h2>
+
+        <p>
+          Dancers refine precision, artistry and performance
+          quality through carefully coached classical repertoire.
+        </p>
+
+        <p>
+          Individualized corrections and private coaching
+          allow students to grow both technically and artistically.
+        </p>
+
+        <a href="#" class="explore-btn">
+
+          <span>Explore More</span>
+
+          <img 
+          src="https://lh3.googleusercontent.com/d/1Is9-U_lHXlmMlglJPod_RoRmUMo75-0s"
+          class="pointe-icon">
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+</body>
+</html>
