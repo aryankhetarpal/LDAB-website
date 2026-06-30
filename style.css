@@ -44,7 +44,7 @@ section{
 /*==================================================
 COLOUR PALETTE
 
-Primary : #586b76
+Primary : #586176
 Dark    : #1E1E1E
 Light   : #F8FBFB
 
@@ -109,7 +109,7 @@ nav a{
 }
 
 nav a:hover{
-    color:#586b76;
+    color:#586176;
 }
 
 nav a::after{
@@ -120,7 +120,7 @@ nav a::after{
     bottom:-8px;
     width:0;
     height:2px;
-    background:#586b76;
+    background:#586176;
     transition:.35s;
 }
 
@@ -202,7 +202,7 @@ BUTTONS
 }
 
 .primary-btn{
-    background:#586b76;
+    background:#586176;
     color:#fff;
     padding:18px 40px;
     border-radius:60px;
@@ -213,7 +213,7 @@ BUTTONS
 }
 
 .primary-btn:hover{
-    background:#586b76;
+    background:#586176;
     transform:translateY(-5px);
 }
 
@@ -245,7 +245,7 @@ EXPLORE MORE BUTTON
 
     gap:14px;
 
-    background:#586b76;
+    background:#586176;
 
     color:#fff;
 
@@ -267,7 +267,7 @@ EXPLORE MORE BUTTON
 
     transform:translateY(-4px);
 
-    box-shadow:0 18px 40px rgba(88,118,107,.35);
+    box-shadow:0 18px 40px rgba(92, 108, 138, 0.35);
 
 }
 
@@ -446,7 +446,7 @@ VISION & VALUES
     width:100%;
     height:5px;
 
-    background:#586b76;
+    background:#586176;
 
 }
 
@@ -585,7 +585,7 @@ ABOUT LDAB
 
     font-size:48px;
 
-    color:#586b76;
+    color:#586176;
 
 }
 
@@ -618,7 +618,7 @@ ABOUT TEXT
 
 .about-text h2 span{
 
-    color:#586b76;
+    color:#586176;
 
     font-style:italic;
 
@@ -664,7 +664,7 @@ ABOUT TEXT
 
     left:0;
 
-    color:#586b76;
+    color:#586176;
 
     font-weight:bold;
 
@@ -707,7 +707,7 @@ ABOUT STAT BOXES
 
     transform:translateY(-8px);
 
-    background:#586b76;
+    background:#586176;
 
     color:white;
 
@@ -746,7 +746,7 @@ DECORATIVE IMAGE FRAME
 
     height:180px;
 
-    border:3px solid #586b76;
+    border:3px solid #586176;
 
     right:-35px;
 
@@ -912,7 +912,7 @@ WHY CHOOSE LDAB
 
     height:6px;
 
-    background:#586b76;
+    background:#586176;
 
     transform:scaleX(0);
 
@@ -1075,6 +1075,71 @@ FEATURED CLASSES
     display:inline-flex;
 
 }
+/* Featured Classes Button */
+
+.class-card .explore-btn{
+
+    margin:0 30px 35px;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    background:#586176;
+
+    color:#fff;
+
+    padding:16px 26px;
+
+    border-radius:60px;
+
+    font-weight:600;
+
+    letter-spacing:.5px;
+
+    transition:.35s;
+
+    box-shadow:0 12px 30px rgba(88,118,107,.25);
+
+    width:fit-content;
+
+}
+
+.class-card .explore-btn:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 18px 40px rgba(88,118,107,.35);
+
+}
+
+.class-card .btn-text{
+
+    white-space:nowrap;
+
+}
+
+.class-card .shoe-icon{
+
+    width:42px;
+
+    height:42px;
+
+    object-fit:contain;
+
+    flex-shrink:0;
+
+    transition:.35s;
+
+}
+
+.class-card .explore-btn:hover .shoe-icon{
+
+    transform:translateX(5px) rotate(-10deg);
+
+}
 
 
 
@@ -1124,7 +1189,7 @@ CARD HOVER
 
 .class-card:hover h3{
 
-    color:#586b76;
+    color:#586176;
 
 }
 
@@ -1233,7 +1298,7 @@ SPECIAL PROGRAMS
 
 .programs{
 
-    background:linear-gradient(135deg,#586b76,#465D55);
+    background:linear-gradient(135deg,#586176,#465D55);
 
     color:#fff;
 
@@ -1344,7 +1409,7 @@ BALLET JOURNEY
 
     height:4px;
 
-    background:#586b76;
+    background:#586176;
 
     z-index:0;
 
@@ -1376,7 +1441,7 @@ BALLET JOURNEY
 
     border-radius:50%;
 
-    background:#586b76;
+    background:#586176;
 
     top:0;
 
@@ -1728,7 +1793,7 @@ TESTIMONIALS
 
     height:5px;
 
-    background:#586b76;
+    background:#586176;
 
     transform:scaleX(0);
 
@@ -1782,7 +1847,7 @@ TESTIMONIALS
 
     font-size:28px;
 
-    color:#586b76;
+    color:#586176;
 
 }
 
@@ -1984,7 +2049,7 @@ SCROLL TO TOP
 
     height:58px;
 
-    background:#586b76;
+    background:#586176;
 
     color:white;
 
@@ -2271,7 +2336,7 @@ SECTION DIVIDERS
     background:linear-gradient(
         to right,
         transparent,
-        #586b76,
+        #586176,
         transparent
     );
 
@@ -2297,7 +2362,7 @@ CARD TITLE ANIMATION
 .class-card:hover h3,
 .cert-card:hover h3{
 
-    color:#586b76;
+    color:#586176;
 
 }
 
@@ -2375,7 +2440,7 @@ PREMIUM SCROLLBAR
 
 ::-webkit-scrollbar-thumb{
 
-    background:#586b76;
+    background:#586176;
 
     border-radius:30px;
 
@@ -2395,7 +2460,7 @@ TEXT SELECTION
 
 ::selection{
 
-    background:#586b76;
+    background:#586176;
 
     color:white;
 
