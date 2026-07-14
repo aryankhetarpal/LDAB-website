@@ -3872,62 +3872,7 @@ CARD
 
 }
 
-/*=====================================
-REVERSE LAYOUT
-=====================================*/
 
-.certification-row.reverse{
-
-    grid-template-columns:58% 42%;
-
-}
-
-.certification-row.reverse .certification-content{
-
-    order:1;
-
-}
-
-.certification-row.reverse .certification-image{
-
-    order:2;
-
-}
-/*=====================================
-IMAGE
-=====================================*/
-
-.certification-image{
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    padding:60px;
-
-    background:#FBFCFC;
-
-}
-
-.certification-image img{
-
-    width:100%;
-
-    max-width:430px;
-
-    transition:.45s ease;
-
-    object-fit:contain;
-
-}
-
-.certification-row:hover .certification-image img{
-
-    transform:scale(1.04);
-
-}
 
 /*=====================================
 TEXT
