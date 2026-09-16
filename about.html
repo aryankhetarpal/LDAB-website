@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>About Us | LDAB</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- ==========================================
+PAGE-SPECIFIC ADDITIONS (About Us)
+Everything below extends style.css and reuses
+the same tokens: primary #586176, dark #1E1E1E,
+light #F8FBFB, Cormorant Garamond for headings.
+Move this block into style.css whenever convenient.
+========================================== -->
+<style>
+
+/*==================================================
+DIRECTOR VIDEO
+==================================================*/
+
+.director-video{
+    background:#fff;
+    text-align:center;
+}
+
+.director-video h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:56px;
+    color:#1E1E1E;
+    margin-bottom:20px;
+}
+
+.director-video p{
+    max-width:650px;
+    margin:0 auto 55px;
+    color:#666;
+    font-size:17px;
+}
+
+.video-frame{
+    max-width:1000px;
+    margin:auto;
+    position:relative;
+    border-radius:35px;
+    overflow:hidden;
+    aspect-ratio:16/9;
+    box-shadow:0 30px 70px rgba(0,0,0,.15);
+}
+
+.video-frame iframe{
+    width:100%;
+    height:100%;
+    border:0;
+    display:block;
+}
+
+.video-frame .video-placeholder{
+    width:100%;
+    height:100%;
+    background:linear-gradient(135deg,#586176,#2f3542);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    color:#fff;
+    gap:18px;
+}
+
+.play-circle{
+    width:86px;
+    height:86px;
+    border-radius:50%;
+    background:rgba(255,255,255,.15);
+    backdrop-filter:blur(8px);
+    border:2px solid rgba(255,255,255,.6);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:26px;
+    transition:.35s;
+}
+
+.video-frame:hover .play-circle{
+    transform:scale(1.08);
+    background:rgba(255,255,255,.25);
+}
+
+.video-placeholder span{
+    font-size:15px;
+    letter-spacing:.5px;
+    color:rgba(255,255,255,.85);
+}
+
+/*==================================================
+HISTORY & EXPERIENCE
+==================================================*/
+
+.history{
+    background:#F8FBFB;
+}
+
+.history-inner{
+    max-width:1100px;
+    margin:auto;
+    text-align:center;
+}
+
+.history-inner h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:56px;
+    color:#1E1E1E;
+    margin-bottom:30px;
+}
+
+.history-inner p{
+    color:#666;
+    font-size:17px;
+    line-height:2;
+    margin-bottom:22px;
+    text-align:left;
+}
+
+.history-stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:22px;
+    margin-top:55px;
+}
+
+.history-stats .stat-box h3{
+    color:#586176;
+}
+
+/*==================================================
+INSTRUCTORS
+==================================================*/
+
+.instructors{
+    background:#fff;
+}
+
+.instructors h2{
+    text-align:center;
+    font-family:'Cormorant Garamond',serif;
+    font-size:56px;
+    color:#1E1E1E;
+    margin-bottom:20px;
+}
+
+.instructors > p{
+    max-width:650px;
+    margin:0 auto 65px;
+    text-align:center;
+    color:#666;
+    font-size:17px;
+}
+
+.instructor-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:35px;
+}
+
+.instructor-card.director-card{
+    background:#586176;
+    color:#fff;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:50px 30px;
+}
+
+.instructor-card.director-card h3{
+    color:#fff;
+}
+
+.instructor-card.director-card .instructor-role{
+    color:#A8ECEE;
+}
+
+.instructor-card.director-card p{
+    color:rgba(255,255,255,.85);
+    margin-bottom:22px;
+}
+
+.instructor-card.director-card a{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    color:#fff;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:.5px;
+    text-transform:uppercase;
+    border-bottom:1px solid rgba(255,255,255,.5);
+    padding-bottom:4px;
+    transition:.3s;
+}
+
+.instructor-card.director-card a:hover{
+    border-color:#fff;
+}
+
+.instructor-card{
+    background:#F8FBFB;
+    border-radius:30px;
+    overflow:hidden;
+    text-align:center;
+    box-shadow:0 15px 35px rgba(0,0,0,.06);
+    transition:.4s ease;
+}
+
+.instructor-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 25px 55px rgba(0,0,0,.12);
+}
+
+.instructor-photo{
+    width:100%;
+    height:260px;
+    border:2px dashed #c8c8c8;
+    background:#fafafa;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#888;
+    font-size:16px;
+}
+
+.instructor-info{
+    padding:28px 24px 34px;
+}
+
+.instructor-info h3{
+    font-family:'Cormorant Garamond',serif;
+    font-size:26px;
+    color:#1E1E1E;
+    margin-bottom:6px;
+}
+
+.instructor-role{
+    display:block;
+    color:#586176;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:.5px;
+    text-transform:uppercase;
+    margin-bottom:16px;
+}
+
+.instructor-info p{
+    color:#666;
+    font-size:15px;
+    line-height:1.8;
+}
+
+/*==================================================
+SUPPORT TEAM & VISITING FACULTY
+==================================================*/
+
+.visiting-faculty{
+    background:#F7F9FA;
+}
+
+.visiting-faculty h2{
+    text-align:center;
+    font-family:'Cormorant Garamond',serif;
+    font-size:56px;
+    color:#1E1E1E;
+    margin-bottom:20px;
+}
+
+.visiting-faculty > p{
+    max-width:650px;
+    margin:0 auto 60px;
+    text-align:center;
+    color:#666;
+    font-size:17px;
+}
+
+.faculty-grid{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+}
+
+.faculty-card{
+    background:#fff;
+    border-radius:28px;
+    overflow:hidden;
+    box-shadow:0 15px 35px rgba(0,0,0,.06);
+    transition:.35s;
+    text-align:center;
+}
+
+.faculty-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 22px 50px rgba(0,0,0,.1);
+}
+
+.faculty-photo{
+    width:100%;
+    height:200px;
+    border:2px dashed #c8c8c8;
+    background:#fafafa;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#888;
+    font-size:15px;
+}
+
+.faculty-info{
+    padding:28px 26px 32px;
+}
+
+.faculty-card h4{
+    font-family:'Cormorant Garamond',serif;
+    font-size:22px;
+    color:#1E1E1E;
+    margin-bottom:6px;
+}
+
+.faculty-card span{
+    display:block;
+    color:#586176;
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:.5px;
+    text-transform:uppercase;
+    margin-bottom:10px;
+}
+
+.faculty-card p{
+    color:#666;
+    font-size:14px;
+    line-height:1.8;
+}
+
+/*==================================================
+RESPONSIVE — ABOUT PAGE ADDITIONS
+==================================================*/
+
+@media(max-width:1100px){
+
+.instructor-grid{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.faculty-grid{
+    grid-template-columns:1fr 1fr;
+}
+
+.history-stats{
+    grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media(max-width:768px){
+
+.director-video h2,
+.history-inner h2,
+.instructors h2,
+.visiting-faculty h2{
+    font-size:40px;
+}
+
+.instructor-grid{
+    grid-template-columns:1fr;
+}
+
+.faculty-grid{
+    grid-template-columns:1fr;
+}
+
+.history-stats{
+    grid-template-columns:1fr;
+}
+
+.history-inner p{
+    text-align:left;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- ===========================
+TOP HEADER
+=========================== -->
+
+<div class="top-header">
+
+<div class="logo-panel">
+
+<img src="images/logo.png" alt="LDAB Logo">
+
+</div>
+
+<div class="header-info">
+
+<h2>Les Danseuses Academy of Ballet</h2>
+
+<div class="header-line"></div>
+
+<p>About Us</p>
+
+</div>
+
+</div>
+
+
+<!-- ===========================
+NAVIGATION
+=========================== -->
+
+<header>
+
+<nav>
+
+<a href="index.html">Home</a>
+
+<a class="active" href="about.html">About Us</a>
+
+<a href="classes.html">Classes</a>
+
+<a href="certifications.html">Certifications</a>
+
+<a href="contact.html">Contact</a>
+
+</nav>
+
+</header>
+
+
+<!-- ===========================
+PAGE HERO
+=========================== -->
+
+<section class="page-hero" style="background:linear-gradient(rgba(18,25,30,.45),rgba(18,25,30,.45)), url('https://lh3.googleusercontent.com/d/1TFqO1X4EIMKl3Bd9rMR5EerxKSA4R1ew') center center/cover no-repeat;">
+
+    <div class="hero-overlay"></div>
+
+    <div class="page-hero-content">
+
+        <h1>About LDAB</h1>
+
+        <p>
+
+            Les Danseuses Academy of Ballet was built on one belief — that
+            discipline and artistry can grow together. Meet the people
+            behind that vision.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ===========================
+DIRECTOR
+=========================== -->
+
+<section id="director">
+
+    <div class="about-preview">
+
+        <div class="about-image">
+
+            <div class="image-placeholder" style="width:100%;height:720px;">
+
+                Founder & Director Photo
+
+            </div>
+
+            <div class="floating-card">
+
+                <div>
+
+                    <h3>2016</h3>
+
+                    <p>Founded LDAB in Pune</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="about-text">
+
+            <h2>Meet Our <span>Founder & Artistic Director</span></h2>
+
+            <p>
+
+                Neha Suhjani was introduced to classical ballet by a
+                Russian ballerina at a very young age. Her love for the
+                art form took her to Bangalore, where she began training
+                in a more structured way — and, since formal dance
+                examinations were uncommon in India at the time, on to
+                Kuala Lumpur, where she completed her ISTD graded exams
+                under Ms Rachel Aw and later her ISTD Teacher's exams
+                under Ms Suraya Kamil. She pursued dance purely out of
+                love, never originally planning to take it up
+                professionally.
+
+            </p>
+
+            <p>
+
+                A Chartered Accountant by profession, Neha left a
+                promising career at one of the most prestigious companies
+                to pursue her passion for dance and children, founding
+                LDAB in 2016 to build a dance community in Pune. Her
+                performance credits span national and international
+                stages, and she has choreographed and taught students
+                both within India and abroad, continuing to shape the
+                next generation of aspiring ballet dancers.
+
+            </p>
+
+            <p>
+
+                Neha has completed numerous examinations and taken part
+                in countless competitions and performances across the
+                Asia Pacific region. Her examination work and study of
+                the ISTD/CSTD syllabus give her deep experience across
+                Jazz, Classical Ballet and Contemporary — and her
+                infectious love of dance shapes LDAB's belief that ballet
+                should be fun and accessible to everyone.
+
+            </p>
+
+            <ul>
+
+                <li>ISTD Graded & Teacher's Certifications (Kuala Lumpur)</li>
+
+                <li>Trained across the ISTD/CSTD syllabus — Jazz, Classical Ballet & Contemporary</li>
+
+                <li>Former Chartered Accountant</li>
+
+                <li>Founder & Artistic Director, Les Danseuses Academy of Ballet (est. 2016)</li>
+
+            </ul>
+
+            <div class="about-stats">
+
+                <div class="stat-box">
+
+                    <h3>500+</h3>
+
+                    <p>Students Trained</p>
+
+                </div>
+
+                <div class="stat-box">
+
+                    <h3>3</h3>
+
+                    <p>International Affiliations</p>
+
+                </div>
+
+            </div>
+
+            <a href="contact.html" class="explore-btn">
+
+                <span class="btn-text">Get in Touch</span>
+
+                <img src="https://lh3.googleusercontent.com/d/1Is9-U_lHXlmMlglJPod_RoRmUMo75-0s"
+                class="shoe-icon"
+                alt="Pointe Shoe">
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ===========================
+DIRECTOR VIDEO
+=========================== -->
+
+<section class="director-video">
+
+    <h2>A Word From Our Director</h2>
+
+    <p>
+
+        Hear directly from Neha Suhjani on what LDAB stands for, and what
+        she hopes every dancer takes away from their time at the academy.
+
+    </p>
+
+    <div class="video-frame">
+
+        <!--
+        Replace the placeholder div below with an iframe once the video
+        is ready, e.g.:
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
+        -->
+
+        <div class="video-placeholder">
+
+            <div class="play-circle">▶</div>
+
+            <span>Director's Welcome Video — Coming Soon</span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ===========================
+HISTORY & EXPERIENCE
+=========================== -->
+
+<section class="history">
+
+    <div class="history-inner">
+
+        <h2>Our History & Experience</h2>
+
+        <p>
+
+            Les Danseuses Academy of Ballet was founded in 2016 by Neha
+            Suhjani, a Chartered Accountant who gave up a promising
+            corporate career to build a dance community in Pune. What
+            began as one woman's love for classical ballet — discovered
+            as a child and later formalised through ISTD graded and
+            Teacher's examinations in Kuala Lumpur — has grown into a
+            full academy shaped by the same discipline and care from day
+            one.
+
+        </p>
+
+        <p>
+
+            Since then, LDAB's examination work and study of the
+            ISTD/CSTD syllabus has taken students across Jazz, Classical
+            Ballet and Contemporary, with performance and competition
+            credits spanning India and the wider Asia Pacific region.
+            Students train and examine following internationally
+            recognised syllabi, carrying the same foundations they build
+            here into every stage, exam and performance that follows.
+
+        </p>
+
+        <div class="history-stats">
+
+            <div class="stat-box">
+
+                <h3>2016</h3>
+
+                <p>LDAB Founded in Pune</p>
+
+            </div>
+
+            <div class="stat-box">
+
+                <h3>500+</h3>
+
+                <p>Students Trained</p>
+
+            </div>
+
+            <div class="stat-box">
+
+                <h3>3</h3>
+
+                <p>Global Affiliations</p>
+
+            </div>
+
+            <div class="stat-box">
+
+                <h3>50+</h3>
+
+                <p>Examinations & Performances</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ===========================
+INSTRUCTORS
+=========================== -->
+
+<section class="instructors">
+
+    <h2>Our Faculty</h2>
+
+    <p>
+
+        LDAB's faculty pairs certified senior instructors with dedicated
+        student-instructors who trained here themselves — every one of
+        them mentored directly by Neha.
+
+    </p>
+
+    <div class="instructor-grid">
+
+        <div class="instructor-card director-card">
+
+            <h3>Neha Suhjani</h3>
+
+            <span class="instructor-role">Founder & Artistic Director</span>
+
+            <p>ISTD-certified, leading LDAB since founding the academy in 2016.</p>
+
+            <a href="#director">View Full Profile</a>
+
+        </div>
+
+        <div class="instructor-card">
+
+            <div class="instructor-photo">Photo</div>
+
+            <div class="instructor-info">
+
+                <h3>Vrindha</h3>
+
+                <span class="instructor-role">Ballet & Performing Arts Instructor</span>
+
+                <p>
+
+                    21 years into her dance journey — starting in
+                    contemporary, Bollywood, freestyle and Indian dance
+                    forms — Vrindha found her true passion in ballet at
+                    LDAB. She went on to train abroad, and now teaches
+                    with certifications in Performing Arts from Seattle
+                    and in Ballet from UNESCO, ISTD and CSTD, alongside
+                    performing and competing herself.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="instructor-card">
+
+            <div class="instructor-photo">Photo</div>
+
+            <div class="instructor-info">
+
+                <h3>Ira Pawar</h3>
+
+                <span class="instructor-role">Student Instructor — Classical Ballet</span>
+
+                <p>
+
+                    Currently in Std. 12 and a prefect at her college,
+                    Ira is also completing her final ballet examination,
+                    Grade 6. LDAB has become a second home to her, and
+                    she's received Honourable Mentions in Classical Solo
+                    at international competitions in 2019 and at the
+                    Asia Pacific Dance Competition 2025 in Singapore. She
+                    now teaches at LDAB under Neha's guidance.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="instructor-card">
+
+            <div class="instructor-photo">Photo</div>
+
+            <div class="instructor-info">
+
+                <h3>Jiyana Sanghvi</h3>
+
+                <span class="instructor-role">Student Instructor — Contemporary</span>
+
+                <p>
+
+                    Pursuing Economics and aspiring toward a CFA, Jiyana
+                    began ballet at age eight after three years of
+                    Kathak. Competing internationally since 2020, she
+                    earned an Honourable Mention in Contemporary at APDC
+                    2023. She now teaches competition students and runs
+                    the contemporary class during advanced Sunday
+                    sessions.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="instructor-card">
+
+            <div class="instructor-photo">Photo</div>
+
+            <div class="instructor-info">
+
+                <h3>Ashreta Lekhi</h3>
+
+                <span class="instructor-role">Student Instructor — Ballet & Contemporary</span>
+
+                <p>
+
+                    An 11th-grade student pursuing engineering, and a
+                    pianist and photographer besides, Ashreta joined LDAB
+                    in 2022 and has since performed in LDAB productions
+                    and international competitions. Alongside ballet, she
+                    explores contemporary dance and acrobatics, and now
+                    teaches students of her own.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ===========================
+VISITING FACULTY
+=========================== -->
+
+<section class="visiting-faculty">
+
+    <h2>Visiting Faculty</h2>
+
+    <p>
+
+        LDAB regularly invites established instructors, choreographers
+        and partner academies from India and abroad to lead guest
+        workshops and masterclasses.
+
+    </p>
+
+    <div class="faculty-grid">
+
+        <div class="faculty-card">
+
+            <div class="faculty-photo">Photo</div>
+
+            <div class="faculty-info">
+
+                <h4>Manish Chauhan</h4>
+
+                <span>IMCD · Yeh Ballet / Call Me Dancer</span>
+
+                <p>Guest workshops and masterclasses at LDAB.</p>
+
+            </div>
+
+        </div>
+
+        <div class="faculty-card">
+
+            <div class="faculty-photo">Photo</div>
+
+            <div class="faculty-info">
+
+                <h4>Kokila Hariram</h4>
+
+                <span>Academy of Modern Danse</span>
+
+                <p>Guest workshops and masterclasses at LDAB.</p>
+
+            </div>
+
+        </div>
+
+        <div class="faculty-card">
+
+            <div class="faculty-photo">Photo</div>
+
+            <div class="faculty-info">
+
+                <h4>Suhaili</h4>
+
+                <span>Aurora School of Dance, Malaysia</span>
+
+                <p>Guest workshops and masterclasses at LDAB.</p>
+
+            </div>
+
+        </div>
+
+        <div class="faculty-card">
+
+            <div class="faculty-photo">Photo</div>
+
+            <div class="faculty-info">
+
+                <h4>Suraya Kamil</h4>
+
+                <span>Aurora School of Dance</span>
+
+                <p>Examined Neha's ISTD Teacher's certification in Kuala Lumpur, and continues to guest-teach at LDAB.</p>
+
+            </div>
+
+        </div>
+
+        <div class="faculty-card">
+
+            <div class="faculty-photo">Photo</div>
+
+            <div class="faculty-info">
+
+                <h4>Bangkok City Ballet</h4>
+
+                <span>Partner Academy · Thailand</span>
+
+                <p>Guest workshops and masterclasses at LDAB.</p>
+
+            </div>
+
+        </div>
+
+        <div class="faculty-card">
+
+            <div class="faculty-photo">Photo</div>
+
+            <div class="faculty-info">
+
+                <h4>Marlupi Dance Academy</h4>
+
+                <span>Partner Academy · Malaysia</span>
+
+                <p>Guest workshops and masterclasses at LDAB.</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ===========================
+CALL TO ACTION
+=========================== -->
+
+<section class="cta-home">
+
+    <div class="cta-content">
+
+        <div class="cta-text">
+
+            <span>MEET THE TEAM</span>
+
+            <h2>
+
+                Come Train With The Team That Built LDAB
+
+            </h2>
+
+            <p>
+
+                Book a trial class and see first-hand how our instructors
+                bring discipline, warmth and world-class training
+                together in every session.
+
+            </p>
+
+            <a href="contact.html" class="explore-btn">
+
+                <span class="btn-text">Book a Trial Class</span>
+
+                <img src="https://lh3.googleusercontent.com/d/1Is9-U_lHXlmMlglJPod_RoRmUMo75-0s"
+                     class="shoe-icon"
+                     alt="Pointe Shoe">
+
+            </a>
+
+        </div>
+
+        <div class="cta-image">
+
+            <div class="cta-placeholder">
+
+                Instructor & Student Image
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ===========================
+FOOTER
+=========================== -->
+
+<footer class="footer">
+
+    <div class="footer-grid">
+
+        <div>
+
+            <img src="images/logo.png" class="footer-logo">
+
+            <p>
+
+                Les Danseuses Academy of Ballet offers world-class ballet
+                education with internationally recognised training,
+                nurturing confidence, artistry and discipline.
+
+            </p>
+
+        </div>
+
+        <div>
+
+            <h3>Quick Links</h3>
+
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="classes.html">Classes</a>
+            <a href="certifications.html">Certifications</a>
+            <a href="contact.html">Contact</a>
+
+        </div>
+
+        <div>
+
+            <h3>Contact</h3>
+
+            <p>Email</p>
+            <p>Phone</p>
+            <p>Location</p>
+
+        </div>
+
+        <div>
+
+            <h3>Follow Us</h3>
+
+            <p>Instagram</p>
+            <p>Facebook</p>
+            <p>YouTube</p>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+        © 2026 Les Danseuses Academy of Ballet. All Rights Reserved.
+
+    </div>
+
+</footer>
+
+</body>
+
+</html>
