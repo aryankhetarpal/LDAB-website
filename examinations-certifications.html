@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Competitions | Les Danseuses Academy of Ballet</title>
+<title>Certifications | Les Danseuses Academy of Ballet</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -21,9 +21,9 @@
 <style>
     /*==================================================
 NAV DROPDOWN — CERTIFICATIONS
-Same block as on the Certifications page. This should
-move into the global style.css so it's consistent on
-every page instead of repeated per-page.
+This should move into the global style.css so the
+same dropdown appears in the nav on every page, not
+just About Us.
 ==================================================*/
 
 .nav-dropdown{
@@ -109,11 +109,6 @@ every page instead of repeated per-page.
     color:#586176;
 }
 
-.dropdown-menu a.active{
-    background:#F8FBFB;
-    color:#586176;
-}
-
 @media(max-width:768px){
 
 .nav-dropdown{
@@ -152,73 +147,68 @@ every page instead of repeated per-page.
 .dropdown-menu a{
     text-align:center;
 }
-
 }
 
 /*==================================================
-READINESS NOTE
-A bold, single-line callout — participation is by
-teacher recommendation, not a default expectation.
+CERTIFICATION CATEGORY LABEL
+A short intro that sits between rows, naming the
+category the next certification below belongs to.
 ==================================================*/
 
-.readiness-note{
-    max-width:820px;
-    margin:0 auto 100px;
+.certification-category{
+    max-width:1400px;
+    margin:0 auto 60px;
+    background:#F8FBFB;
+    border-radius:36px;
+    padding:65px 60px;
     text-align:center;
-    padding:38px 45px;
+    border:1px solid rgba(88,97,118,.10);
+    position:relative;
+}
+
+.certification-category::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:50%;
+    transform:translateX(-50%);
+    width:90px;
+    height:4px;
     background:#586176;
-    color:#fff;
-    border-radius:30px;
-    box-shadow:0 20px 50px rgba(88,97,118,.25);
+    border-radius:0 0 4px 4px;
 }
 
-.readiness-note p{
+.category-tag{
+    display:block;
     font-family:'Cormorant Garamond',serif;
-    font-size:26px;
-    font-style:italic;
-    line-height:1.5;
+    font-size:44px;
+    font-weight:600;
+    color:#586176;
+    text-transform:none;
+    letter-spacing:0;
+    margin:18px 0 20px;
 }
 
-/*==================================================
-COMPETITION IMAGE PLACEHOLDER
-Used for rows that don't have a real photo yet.
-==================================================*/
-
-.certification-placeholder{
-    width:100%;
-    height:100%;
-    min-height:320px;
-    border:2px dashed #c8c8c8;
-    background:#fafafa;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:20px;
-    color:#888;
-    font-size:16px;
-    transition:.35s;
+.certification-category p{
+    max-width:760px;
+    margin:auto;
+    color:#666;
+    font-size:17px;
+    line-height:1.9;
 }
 
-.certification-placeholder:hover{
-    border-color:#586176;
-    background:#f5f8fb;
+@media(max-width:768px){
+
+.certification-category{
+    padding:45px 30px;
+    border-radius:28px;
 }
 
-/*==================================================
-NO-LINK NOTE
-Small inline note shown instead of Explore More when
-a competition doesn't have a link yet.
-==================================================*/
-
-.link-pending{
-    display:inline-block;
-    font-size:13px;
-    color:#999;
-    font-style:italic;
-    letter-spacing:.3px;
+.category-tag{
+    font-size:32px;
 }
 
+}
 </style>
 
 <!-- ===================================
@@ -247,7 +237,7 @@ NAVIGATION
 
 <div class="nav-dropdown">
 
-<a href="certifications.html" class="dropdown-trigger active">
+<a href="certifications.html" class="dropdown-trigger">
 
 Certifications <span class="dropdown-arrow">▾</span>
 
@@ -259,7 +249,7 @@ Certifications <span class="dropdown-arrow">▾</span>
 
 <a href="examinations-certifications.html">Examinations &amp; Certifications</a>
 
-<a href="competitions.html" class="active">Competitions</a>
+<a href="competitions.html">Competitions</a>
 
 <a href="awards.html">Awards</a>
 
@@ -285,13 +275,13 @@ PAGE HERO
 
 <div class="page-hero-content">
 
-<h1>Competitions</h1>
+<h1>Examinations & Certifications</h1>
 
 <p>
 
-Students who demonstrate the necessary technical ability and
-performance readiness may be encouraged to participate in local,
-national, and international ballet competitions.
+Students have the option to appear for examinations alongside their regular ballet training. Examination preparation is incorporated into their existing classes, with dedicated focus on the prescribed syllabus during the relevant sessions.
+
+The syllabus followed is based on the student’s *level, dance experience, technical understanding, and grasping ability*, rather than age. This allows each student to progress at a pace appropriate to their individual abilities and experience.
 
 </p>
 
@@ -300,107 +290,141 @@ national, and international ballet competitions.
 </section>
 
 <!-- ===================================
-WHY COMPETE
+CERTIFICATIONS
 =================================== -->
 
-<section class="why">
-
-<h2>What Competitions Offer</h2>
-
-<div class="why-grid">
-
-
-<div class="why-card">
-
-<h3>Gain Stage Experience</h3>
-
-<p>Real performance conditions that studio classes alone can't fully replicate.</p>
-
-</div>
-
-<div class="why-card">
-
-<h3>Develop Resilience</h3>
-
-<p>Learning to handle pressure, setbacks and sportsmanship with grace.</p>
-
-</div>
-
-<div class="why-card">
-
-<h3>Professional Feedback</h3>
-
-<p>Adjudication from experienced judges sharpens technique and artistry.</p>
-
-</div>
-
-<div class="why-card">
-
-<h3>Celebrate Excellence</h3>
-
-<p>Recognising the discipline and artistry behind every performance.</p>
-
-</div>
-
-</div>
-
-</section>
-
+<section class="certifications">
 <!-- ===================================
-READINESS NOTE
-=================================== -->
-
-<section style="padding-top:0;">
-
-<div class="readiness-note">
-
-<p>Participation is always based on teacher recommendation and student readiness.</p>
-
-</div>
-
-</section>
-
-<!-- ===================================
-COMPETITIONS LDAB HAS PARTICIPATED IN
-=================================== -->
-
-<section class="certifications" style="padding-top:0;">
-
-<div class="section-title">
-
-<h2>Competitions We've Participated In</h2>
-
-<p>A few competitions LDAB students have taken part in over the years.</p>
-
-</div>
-
-<!-- ===================================
-APDC
+ISTD
 =================================== -->
 
 <div class="certification-row">
 
 <div class="certification-image">
 
-<div class="certification-placeholder">APDC Image</div>
+<img src="https://lh3.googleusercontent.com/d/1UiKyENOySs26VtQUjfpTiSjZmCYCIWVu">
 
 </div>
 
 <div class="certification-content">
 
-<h2>APDC</h2>
+<h2>ISTD</h2>
 
 <p>
 
-The Asia Pacific Dance Competition (APDC) is a regional competition
-held across cities in the Asia Pacific, bringing together dancers
-from multiple countries to compete, perform and be adjudicated by
-international judges.
+The Imperial Society of Teachers of Dancing (ISTD), London,
+is one of the world's most respected dance examination boards.
+Its Imperial Classical Ballet syllabus develops strong technique,
+musicality, artistry and performance quality.
+
+</p>
+
+<p>
+
+Students at LDAB receive internationally recognised training
+that prepares them for examinations, ballet awards,
+performance competitions and advanced professional opportunities.
 
 </p>
 
 <a
-href="https://share.google/ee7k8ZolgdJghouzR"
+href="https://www.istd.org/dance/dance-genres/imperial-classical-ballet/"
+target="_blank"
+class="explore-btn">
+
+<span class="btn-text">Explore More</span>
+
+<img
+src="https://lh3.googleusercontent.com/d/1Is9-U_lHXlmMlglJPod_RoRmUMo75-0s"
+class="shoe-icon">
+
+</a>
+
+</div>
+
+</div>
+
+
+<!-- CSTD -->
+
+<div class="certification-row">
+
+<div class="certification-image">
+
+<img src="https://lh3.googleusercontent.com/d/1hGayF5D2Rhj1YQVHMFiXRE7Z0tdPNrKM">
+
+</div>
+
+<div class="certification-content">
+
+<h2>CSTD</h2>
+
+<p>
+
+The Commonwealth Society of Teachers of Dancing is one of the world's
+leading dance organisations with over eighty-five years of excellence.
+
+</p>
+
+<p>
+
+Through internationally recognised examinations and progressive
+training, LDAB students receive structured development while building
+confidence, artistry and performance skills.
+
+</p>
+
+<a
+href="https://comdance.org/for-teachers/classical-ballet/"
+target="_blank"
+class="explore-btn">
+
+<span class="btn-text">Explore More</span>
+
+<img
+src="https://lh3.googleusercontent.com/d/1Is9-U_lHXlmMlglJPod_RoRmUMo75-0s"
+class="shoe-icon">
+
+</a>
+
+</div>
+
+</div>
+
+
+<!-- ===================================
+RAD
+=================================== -->
+
+<div class="certification-row">
+
+<div class="certification-image">
+
+<img src="https://lh3.googleusercontent.com/d/1Cs1jbh4JVXReIcTvQ4MDx_ef0h7k3Jt-">
+
+</div>
+
+<div class="certification-content">
+
+<h2>Royal Academy of Dance (RAD)</h2>
+
+<p>
+
+Founded in London in 1920, the Royal Academy of Dance is one of the
+world's leading organisations dedicated to classical ballet education.
+
+</p>
+
+<p>
+
+RAD examinations develop exceptional technical standards,
+artistry and discipline while providing internationally recognised
+qualifications for aspiring dancers.
+
+</p>
+
+<a
+href="https://www.royalacademyofdance.org/about-the-rad/history/"
 target="_blank"
 class="explore-btn">
 
@@ -417,63 +441,60 @@ class="shoe-icon">
 </div>
 
 <!-- ===================================
-BTP
+CATEGORY LABEL — leads into Jason Winters
 =================================== -->
 
-<div class="certification-row">
+<div class="certification-category">
 
-<div class="certification-image">
-
-<div class="certification-placeholder">BTP Image</div>
-
-</div>
-
-<div class="certification-content">
-
-<h2>BTP</h2>
+<span class="category-tag">Additional Certification</span>
 
 <p>
 
-Born to Perform (BTP) is a CSTD regional dance competition that
-brings together students across classical, contemporary and
-performance categories to compete and be assessed by qualified
-adjudicators.
+In addition to ballet examinations, students also have the
+opportunity to pursue a Contemporary Dance certification in the
+Jason Winters Contemporary Technique, allowing them to develop
+their contemporary practice through a structured and recognised
+technique-based programme.
 
 </p>
-
-<span class="link-pending">Link coming soon</span>
-
-</div>
 
 </div>
 
 <!-- ===================================
-FIBC
+JASON WINTERS
 =================================== -->
 
 <div class="certification-row">
 
 <div class="certification-image">
 
-<div class="certification-placeholder">FIBC Image</div>
+<img src="https://lh3.googleusercontent.com/d/1NFyRM0EZlYanJx0Y65Ql6FxiiRXJA-Eg">
 
 </div>
 
 <div class="certification-content">
 
-<h2>FIBC</h2>
+<h2>Jason Winters Contemporary Technique</h2>
 
 <p>
 
-The Frankfurt International Ballet Competition (FIBC) is an
-international ballet competition for children and young
-non-professional dancers, offering participants access to an
-experienced, internationally renowned jury.
+In partnership with the Commonwealth Society of Teachers of Dancing,
+LDAB proudly offers the internationally acclaimed
+Jason Winters Contemporary Technique programme.
+
+</p>
+
+<p>
+
+This contemporary syllabus develops strength, versatility,
+musical interpretation and expressive movement,
+complementing classical ballet training while broadening every
+student's artistic capabilities.
 
 </p>
 
 <a
-href="https://share.google/tMOsKj0P9ZCi5fyjM"
+href="https://comdance.org/for-teachers/contemporary/"
 target="_blank"
 class="explore-btn">
 
@@ -490,32 +511,57 @@ class="shoe-icon">
 </div>
 
 <!-- ===================================
-IAF
+CATEGORY LABEL — leads into UNESCO
 =================================== -->
+
+<div class="certification-category">
+
+<span class="category-tag">Teacher Training</span>
+
+<p>
+
+For students and dancers who aspire to become teachers and
+trainers with LDAB, we also offer a dedicated Teacher Training
+and Certification Programme. This programme is conducted under
+the Council of Dance, UNESCO, providing aspiring educators with
+the opportunity to develop the knowledge, skills, and teaching
+methodology required to train and mentor dancers.
+
+</p>
+
+</div>
+
+<!-- UNESCO -->
 
 <div class="certification-row">
 
 <div class="certification-image">
 
-<div class="certification-placeholder">IAF Image</div>
+<img src="https://lh3.googleusercontent.com/d/1Olmiyfu7alD7Q-knln_NKVKFZ2Qbrrfv">
 
 </div>
 
 <div class="certification-content">
 
-<h2>IAF</h2>
+<h2>UNESCO – CID</h2>
 
 <p>
 
-The International Arts Festival (IAF), organised by the Singapore
-Dance Alliance, is open to dancers of all nationalities across
-classical ballet, contemporary, cultural dance and more —
-competing as soloists, duos, trios and groups.
+CID is the International Dance Council, the official umbrella
+organisation for dance recognised by UNESCO.
+
+</p>
+
+<p>
+
+LDAB proudly offers internationally recognised Teacher Training
+programmes certified by CID, connecting students and educators with
+a worldwide network spanning more than 170 countries.
 
 </p>
 
 <a
-href="https://share.google/Z2gDkhEcZeONDTENC"
+href="https://cid-world.org/"
 target="_blank"
 class="explore-btn">
 
@@ -646,7 +692,6 @@ FOOTER
     </div>
 
 </footer>
-
 <!--
 Certifications dropdown: on desktop this opens on hover (pure CSS).
 On mobile, taps don't trigger :hover, so this adds tap-to-open —

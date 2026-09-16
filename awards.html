@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Competitions | Les Danseuses Academy of Ballet</title>
+<title>Awards | Les Danseuses Academy of Ballet</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -21,9 +21,10 @@
 <style>
     /*==================================================
 NAV DROPDOWN — CERTIFICATIONS
-Same block as on the Certifications page. This should
-move into the global style.css so it's consistent on
-every page instead of repeated per-page.
+Same block as on the Certifications and Competitions
+pages. This should move into the global style.css so
+it's consistent on every page instead of repeated
+per-page.
 ==================================================*/
 
 .nav-dropdown{
@@ -156,67 +157,56 @@ every page instead of repeated per-page.
 }
 
 /*==================================================
-READINESS NOTE
-A bold, single-line callout — participation is by
-teacher recommendation, not a default expectation.
+AWARDS GRIDS
+Reuses the site's .vision-card look (white card, top
+accent bar, hover lift) with page-specific column
+counts for the examination and competition groupings.
 ==================================================*/
 
-.readiness-note{
-    max-width:820px;
-    margin:0 auto 100px;
+.awards-exam-grid{
+    grid-template-columns:repeat(3,1fr);
+}
+
+.awards-compete-grid{
+    grid-template-columns:repeat(2,1fr);
+    max-width:1100px;
+    margin:auto;
+}
+
+@media(max-width:900px){
+
+.awards-exam-grid,
+.awards-compete-grid{
+    grid-template-columns:1fr;
+}
+
+}
+
+/*==================================================
+HIGHLIGHT BANNER
+A bold standalone callout in the primary colour —
+used for the Special Recognition note.
+==================================================*/
+
+.highlight-banner{
+    max-width:900px;
+    margin:0 auto;
     text-align:center;
-    padding:38px 45px;
+    padding:45px 50px;
     background:#586176;
     color:#fff;
     border-radius:30px;
     box-shadow:0 20px 50px rgba(88,97,118,.25);
 }
 
-.readiness-note p{
-    font-family:'Cormorant Garamond',serif;
-    font-size:26px;
-    font-style:italic;
-    line-height:1.5;
+.highlight-banner p{
+    font-size:17px;
+    line-height:2;
+    color:#ECECEC;
 }
 
-/*==================================================
-COMPETITION IMAGE PLACEHOLDER
-Used for rows that don't have a real photo yet.
-==================================================*/
-
-.certification-placeholder{
-    width:100%;
-    height:100%;
-    min-height:320px;
-    border:2px dashed #c8c8c8;
-    background:#fafafa;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:20px;
-    color:#888;
-    font-size:16px;
-    transition:.35s;
-}
-
-.certification-placeholder:hover{
-    border-color:#586176;
-    background:#f5f8fb;
-}
-
-/*==================================================
-NO-LINK NOTE
-Small inline note shown instead of Explore More when
-a competition doesn't have a link yet.
-==================================================*/
-
-.link-pending{
-    display:inline-block;
-    font-size:13px;
-    color:#999;
-    font-style:italic;
-    letter-spacing:.3px;
+.highlight-banner strong{
+    color:#fff;
 }
 
 </style>
@@ -259,9 +249,9 @@ Certifications <span class="dropdown-arrow">▾</span>
 
 <a href="examinations-certifications.html">Examinations &amp; Certifications</a>
 
-<a href="competitions.html" class="active">Competitions</a>
+<a href="competitions.html">Competitions</a>
 
-<a href="awards.html">Awards</a>
+<a href="awards.html" class="active">Awards</a>
 
 </div>
 
@@ -285,13 +275,14 @@ PAGE HERO
 
 <div class="page-hero-content">
 
-<h1>Competitions</h1>
+<h1>Annual Awards &amp; Recognition</h1>
 
 <p>
 
-Students who demonstrate the necessary technical ability and
-performance readiness may be encouraged to participate in local,
-national, and international ballet competitions.
+At LDAB, we believe every milestone deserves to be celebrated. Each
+year, we host an Annual Awards Ceremony to recognise and honour the
+dedication, progress, achievements, and commitment of our students
+throughout the year.
 
 </p>
 
@@ -300,232 +291,143 @@ national, and international ballet competitions.
 </section>
 
 <!-- ===================================
-WHY COMPETE
+EXAMINATION ACHIEVEMENTS
 =================================== -->
 
-<section class="why">
-
-<h2>What Competitions Offer</h2>
-
-<div class="why-grid">
-
-
-<div class="why-card">
-
-<h3>Gain Stage Experience</h3>
-
-<p>Real performance conditions that studio classes alone can't fully replicate.</p>
-
-</div>
-
-<div class="why-card">
-
-<h3>Develop Resilience</h3>
-
-<p>Learning to handle pressure, setbacks and sportsmanship with grace.</p>
-
-</div>
-
-<div class="why-card">
-
-<h3>Professional Feedback</h3>
-
-<p>Adjudication from experienced judges sharpens technique and artistry.</p>
-
-</div>
-
-<div class="why-card">
-
-<h3>Celebrate Excellence</h3>
-
-<p>Recognising the discipline and artistry behind every performance.</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ===================================
-READINESS NOTE
-=================================== -->
-
-<section style="padding-top:0;">
-
-<div class="readiness-note">
-
-<p>Participation is always based on teacher recommendation and student readiness.</p>
-
-</div>
-
-</section>
-
-<!-- ===================================
-COMPETITIONS LDAB HAS PARTICIPATED IN
-=================================== -->
-
-<section class="certifications" style="padding-top:0;">
+<section class="vision">
 
 <div class="section-title">
 
-<h2>Competitions We've Participated In</h2>
+<h2>Examination Achievements</h2>
 
-<p>A few competitions LDAB students have taken part in over the years.</p>
-
-</div>
-
-<!-- ===================================
-APDC
-=================================== -->
-
-<div class="certification-row">
-
-<div class="certification-image">
-
-<div class="certification-placeholder">APDC Image</div>
+<p>Students who appear for examinations are recognised based on their results:</p>
 
 </div>
 
-<div class="certification-content">
+<div class="vision-grid awards-exam-grid">
 
-<h2>APDC</h2>
+<div class="vision-card">
+
+<h3>ISTD</h3>
 
 <p>
 
-The Asia Pacific Dance Competition (APDC) is a regional competition
-held across cities in the Asia Pacific, bringing together dancers
-from multiple countries to compete, perform and be adjudicated by
-international judges.
+Students who achieve a <strong>Distinction</strong> are honoured
+with a trophy. All other students who successfully complete their
+examinations receive medals celebrating their achievement and
+grade.
 
 </p>
 
-<a
-href="https://share.google/ee7k8ZolgdJghouzR"
-target="_blank"
-class="explore-btn">
-
-<span class="btn-text">Explore More</span>
-
-<img
-src="https://lh3.googleusercontent.com/d/1Is9-U_lHXlmMlglJPod_RoRmUMo75-0s"
-class="shoe-icon">
-
-</a>
-
 </div>
 
-</div>
+<div class="vision-card">
 
-<!-- ===================================
-BTP
-=================================== -->
-
-<div class="certification-row">
-
-<div class="certification-image">
-
-<div class="certification-placeholder">BTP Image</div>
-
-</div>
-
-<div class="certification-content">
-
-<h2>BTP</h2>
+<h3>CSTD</h3>
 
 <p>
 
-Born to Perform (BTP) is a CSTD regional dance competition that
-brings together students across classical, contemporary and
-performance categories to compete and be assessed by qualified
-adjudicators.
+Students who achieve <strong>Honours or Honours Plus</strong> are
+honoured with a trophy. All other students who successfully
+complete their examinations receive medals in recognition of their
+accomplishment.
 
 </p>
 
-<span class="link-pending">Link coming soon</span>
-
 </div>
 
-</div>
+<div class="vision-card">
 
-<!-- ===================================
-FIBC
-=================================== -->
-
-<div class="certification-row">
-
-<div class="certification-image">
-
-<div class="certification-placeholder">FIBC Image</div>
-
-</div>
-
-<div class="certification-content">
-
-<h2>FIBC</h2>
+<h3>UNESCO</h3>
 
 <p>
 
-The Frankfurt International Ballet Competition (FIBC) is an
-international ballet competition for children and young
-non-professional dancers, offering participants access to an
-experienced, internationally renowned jury.
+Students who complete the relevant certification programme receive
+an official <strong>certificate from the UNESCO Academy</strong>.
 
 </p>
 
-<a
-href="https://share.google/tMOsKj0P9ZCi5fyjM"
-target="_blank"
-class="explore-btn">
-
-<span class="btn-text">Explore More</span>
-
-<img
-src="https://lh3.googleusercontent.com/d/1Is9-U_lHXlmMlglJPod_RoRmUMo75-0s"
-class="shoe-icon">
-
-</a>
-
 </div>
 
 </div>
+
+</section>
 
 <!-- ===================================
-IAF
+SPECIAL RECOGNITION
 =================================== -->
 
-<div class="certification-row">
+<section>
 
-<div class="certification-image">
+<div class="section-title">
 
-<div class="certification-placeholder">IAF Image</div>
+<h2>Special Recognition</h2>
+
+<p>Celebrating dedication and commitment beyond examination results.</p>
 
 </div>
 
-<div class="certification-content">
-
-<h2>IAF</h2>
+<div class="highlight-banner">
 
 <p>
 
-The International Arts Festival (IAF), organised by the Singapore
-Dance Alliance, is open to dancers of all nationalities across
-classical ballet, contemporary, cultural dance and more —
-competing as soloists, duos, trios and groups.
+Beyond examination results, LDAB also celebrates students who
+demonstrate exceptional dedication and commitment throughout the
+year. Students achieving milestones such as
+<strong>100% attendance, remarkable consistency, outstanding
+effort, or exceptional dedication to their training</strong> may be
+awarded a <strong>medal and certificate from the academy</strong>.
 
 </p>
 
-<a
-href="https://share.google/Z2gDkhEcZeONDTENC"
-target="_blank"
-class="explore-btn">
+</div>
 
-<span class="btn-text">Explore More</span>
+</section>
 
-<img
-src="https://lh3.googleusercontent.com/d/1Is9-U_lHXlmMlglJPod_RoRmUMo75-0s"
-class="shoe-icon">
+<!-- ===================================
+COMPETITION ACHIEVEMENTS
+=================================== -->
 
-</a>
+<section class="vision">
+
+<div class="section-title">
+
+<h2>Competition Achievements</h2>
+
+<p>How awards earned at competitions are recognised and retained.</p>
+
+</div>
+
+<div class="vision-grid awards-compete-grid">
+
+<div class="vision-card">
+
+<h3>Solo Performances</h3>
+
+<p>
+
+Students who participate in dance competitions are encouraged to
+celebrate and retain the awards they earn through solo
+performances.
+
+</p>
+
+</div>
+
+<div class="vision-card">
+
+<h3>Duo, Trio &amp; Group Performances</h3>
+
+<p>
+
+For duo, trio, and group performances, the competition trophy
+received is retained by the academy as part of its collective
+achievements and legacy. The participating students are
+subsequently presented with a trophy or medal by LDAB, ensuring
+that their contribution and achievement are personally recognised
+and celebrated.
+
+</p>
 
 </div>
 
