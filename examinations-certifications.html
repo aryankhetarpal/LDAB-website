@@ -209,6 +209,54 @@ category the next certification below belongs to.
 }
 
 }
+/*==================================================
+COMING SOON OVERLAY
+Blurs a certification row and overlays a "Coming
+Soon" badge for programmes not yet live.
+==================================================*/
+
+.coming-soon-wrap{
+    position:relative;
+}
+
+.certification-row.blurred{
+    filter:blur(6px);
+    pointer-events:none;
+    user-select:none;
+}
+
+.coming-soon-overlay{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(255,255,255,.4);
+    border-radius:36px;
+    z-index:5;
+}
+
+.coming-soon-overlay span{
+    background:#586176;
+    color:#fff;
+    padding:16px 40px;
+    border-radius:50px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:28px;
+    font-weight:600;
+    letter-spacing:1px;
+    box-shadow:0 20px 50px rgba(88,97,118,.35);
+}
+
+@media(max-width:768px){
+
+.coming-soon-overlay span{
+    font-size:22px;
+    padding:14px 30px;
+}
+
+}
+
 </style>
 
 <!-- ===================================
@@ -237,7 +285,7 @@ NAVIGATION
 
 <div class="nav-dropdown">
 
-<a class="dropdown-trigger">
+<a href="certifications.html" class="dropdown-trigger">
 
 Certifications <span class="dropdown-arrow">▾</span>
 
@@ -396,7 +444,9 @@ class="shoe-icon">
 RAD
 =================================== -->
 
-<div class="certification-row">
+<div class="coming-soon-wrap">
+
+<div class="certification-row blurred">
 
 <div class="certification-image">
 
@@ -435,6 +485,14 @@ src="https://lh3.googleusercontent.com/d/1Is9-U_lHXlmMlglJPod_RoRmUMo75-0s"
 class="shoe-icon">
 
 </a>
+
+</div>
+
+</div>
+
+<div class="coming-soon-overlay">
+
+<span>Coming Soon</span>
 
 </div>
 
