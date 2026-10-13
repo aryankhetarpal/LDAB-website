@@ -26,6 +26,217 @@ Move this block into style.css whenever convenient.
 <style>
 
 /*==================================================
+STATS VISIBILITY FIXES
+- The shared stylesheet clips .about-image (overflow:hidden),
+  which cut off the floating "2016" card.
+- .stat-box is the same off-white as the sections it sits on,
+  so it gets a white fill and shadow here.
+==================================================*/
+
+.about-image{
+    overflow:visible;
+}
+
+.about-image:hover img{
+    transform:none;
+}
+
+.floating-card{
+    min-width:230px;
+    width:auto;
+    padding:26px 32px;
+    box-shadow:0 20px 60px rgba(0,0,0,.2);
+    border:1px solid rgba(88,97,118,.12);
+}
+
+.about-text .stat-box,
+.history .stat-box{
+    background:#fff;
+    border:1px solid rgba(88,97,118,.14);
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+}
+
+.about-text .stat-box h3,
+.history .stat-box h3{
+    color:#586176;
+}
+
+.about-text .stat-box:hover,
+.history .stat-box:hover{
+    background:#586176;
+    color:#fff;
+}
+
+.about-text .stat-box:hover h3,
+.history .stat-box:hover h3{
+    color:#fff;
+}
+
+/*==================================================
+PHOTO FRAME SHAPE
+Instructor photos are portrait by default (4 wide : 5 tall).
+Any single photo can change its own shape with --ratio, e.g.
+  <div class="instructor-photo" style="--ratio:1/1" ...>   square
+  <div class="instructor-photo" style="--ratio:3/4" ...>   taller
+  <div class="instructor-photo" style="--ratio:16/10" ...> landscape
+Use data-pos to choose what stays in view when the photo is
+cropped, e.g. data-pos="center top" keeps the face.
+==================================================*/
+
+.instructor-photo{
+    height:auto;
+    aspect-ratio:var(--ratio, 4/5);
+}
+
+.faculty-photo{
+    height:auto;
+    aspect-ratio:var(--ratio, 16/10);
+}
+
+/*==================================================
+INSTRUCTOR CARDS - photo fills the card, name and role sit on
+the photo, and the description appears on hover (tap on touch
+screens).
+Card shape: portrait 3 wide : 4 tall by default. Change one card
+with style="--ratio:4/5" on its instructor-card div.
+Focus point of the photo: data-pos="center top" on the photo div.
+==================================================*/
+
+.instructor-card{
+    position:relative;
+    aspect-ratio:var(--ratio, 3/4);
+    border-radius:30px;
+    overflow:hidden;
+    background:#586176;
+    cursor:pointer;
+    outline:none;
+}
+
+.instructor-card .instructor-photo{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    aspect-ratio:auto;
+    border-radius:0;
+}
+
+.instructor-card .instructor-info{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index:2;
+    padding:90px 26px 26px;
+    text-align:left;
+    background:linear-gradient(to top, rgba(24,28,40,.92) 0%, rgba(24,28,40,.6) 55%, rgba(24,28,40,0) 100%);
+    transition:background .45s ease;
+}
+
+.instructor-card .instructor-info h3{
+    color:#fff;
+    font-size:30px;
+    margin-bottom:4px;
+}
+
+.instructor-card .instructor-role{
+    color:#A8ECEE;
+    font-size:12px;
+    letter-spacing:1px;
+    margin-bottom:0;
+}
+
+.instructor-card .instructor-info p{
+    color:rgba(255,255,255,.92);
+    font-size:14px;
+    line-height:1.75;
+    max-height:0;
+    opacity:0;
+    margin-top:0;
+    overflow:hidden;
+    transition:max-height .5s ease, opacity .4s ease, margin-top .4s ease;
+}
+
+.instructor-card .instructor-info p a{
+    color:#A8ECEE;
+    font-weight:600;
+    text-decoration:underline;
+}
+
+.instructor-card::after{
+    content:"+";
+    position:absolute;
+    top:18px;
+    right:18px;
+    z-index:3;
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    background:rgba(255,255,255,.92);
+    color:#586176;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+    line-height:1;
+    transition:.35s;
+}
+
+/* Open state: tapped (touch) or keyboard-focused */
+
+.instructor-card.is-open .instructor-info,
+.instructor-card:focus-visible .instructor-info{
+    background:linear-gradient(to top, rgba(24,28,40,.97) 0%, rgba(24,28,40,.93) 75%, rgba(24,28,40,.7) 100%);
+}
+
+.instructor-card.is-open .instructor-info p,
+.instructor-card:focus-visible .instructor-info p{
+    max-height:300px;
+    opacity:1;
+    margin-top:14px;
+    overflow-y:auto;
+}
+
+.instructor-card.is-open::after,
+.instructor-card:focus-visible::after{
+    transform:rotate(45deg);
+}
+
+/* Open state: mouse hover (not applied on touch screens, where
+   hover would stay stuck after a tap) */
+
+@media (hover:hover){
+
+.instructor-card:hover .instructor-info{
+    background:linear-gradient(to top, rgba(24,28,40,.97) 0%, rgba(24,28,40,.93) 75%, rgba(24,28,40,.7) 100%);
+}
+
+.instructor-card:hover .instructor-info p{
+    max-height:300px;
+    opacity:1;
+    margin-top:14px;
+    overflow-y:auto;
+}
+
+.instructor-card:hover::after{
+    transform:rotate(45deg);
+}
+
+}
+
+@media(max-width:768px){
+
+.instructor-card .instructor-info p{
+    font-size:13.5px;
+}
+
+.instructor-card.is-open .instructor-info p{
+    max-height:230px;
+}
+
+}
+
+/*==================================================
 DIRECTOR VIDEO
 ==================================================*/
 
@@ -365,6 +576,7 @@ just About Us.
 
 .dropdown-trigger{
     display:inline-flex;
+    cursor:pointer;
     align-items:center;
     gap:6px;
 }
@@ -526,6 +738,119 @@ RESPONSIVE — ABOUT PAGE ADDITIONS
 
 }
 
+
+/*==================================================
+VISITING FACULTY CARDS
+A smaller version of the Certifications page rows: photo on the
+left, details on the right, slate accent bar down the left edge.
+Change the photo width of one card with style="--photo:45%" on
+the visit-card div. Focus point / zoom of the photo work as usual
+(data-pos on the photo div, style="--zoom:1.3").
+==================================================*/
+
+.faculty-grid.visit-grid{
+    grid-template-columns:repeat(2,1fr);
+    max-width:1250px;
+    gap:32px;
+}
+
+.visit-card{
+    position:relative;
+    display:grid;
+    grid-template-columns:var(--photo, 38%) 1fr;
+    background:#fff;
+    border-radius:28px;
+    overflow:hidden;
+    box-shadow:0 18px 45px rgba(0,0,0,.07);
+    transition:.4s ease;
+}
+
+.visit-card::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    width:5px;
+    height:100%;
+    background:#586176;
+    z-index:3;
+}
+
+.visit-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 28px 60px rgba(0,0,0,.12);
+}
+
+.visit-photo{
+    min-height:250px;
+    border:2px dashed #c8c8c8;
+    background:#fafafa;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:15px;
+    color:#888;
+    font-size:14px;
+}
+
+.visit-content{
+    padding:30px 32px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.visit-content h3{
+    font-family:'Cormorant Garamond',serif;
+    font-size:30px;
+    font-weight:600;
+    line-height:1.1;
+    color:#586176;
+    margin-bottom:8px;
+}
+
+.visit-role{
+    display:block;
+    color:#777;
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:.8px;
+    text-transform:uppercase;
+    margin-bottom:14px;
+}
+
+.visit-content p{
+    color:#666;
+    font-size:15px;
+    line-height:1.8;
+}
+
+@media(max-width:900px){
+
+.faculty-grid.visit-grid{
+    grid-template-columns:1fr;
+}
+
+}
+
+@media(max-width:600px){
+
+.visit-card{
+    grid-template-columns:1fr;
+}
+
+.visit-photo{
+    min-height:240px;
+}
+
+.visit-content{
+    padding:26px 26px 30px;
+    text-align:center;
+}
+
+}
+
 </style>
 
 </head>
@@ -637,11 +962,9 @@ DIRECTOR
 
         <div class="about-image">
 
-            <div class="image-placeholder" style="width:100%;height:720px;">
+            <img src="https://lh3.googleusercontent.com/d/1yr0ICpR7xFgSUV7wAAKZNupo1SuXV8k4"
+                 alt="Neha Suhjani, Founder & Artistic Director">
 
-                Founder & Director Photo
-
-            </div>
 
             <div class="floating-card">
 
@@ -880,21 +1203,31 @@ INSTRUCTORS
 
     <div class="instructor-grid">
 
-        <div class="instructor-card director-card">
+        <div class="instructor-card" tabindex="0">
 
-            <h3>Neha Suhjani</h3>
+            <div class="instructor-photo" data-pos="center top" data-img="https://drive.google.com/file/d/1yr0ICpR7xFgSUV7wAAKZNupo1SuXV8k4/view?usp=sharing">Neha Suhjani photo</div>
 
-            <span class="instructor-role">Founder & Artistic Director</span>
+            <div class="instructor-info">
 
-            <p>ISTD-certified, leading LDAB since founding the academy in 2016.</p>
+                <h3>Neha Suhjani</h3>
 
-            <a href="#director">View Full Profile</a>
+                <span class="instructor-role">Founder & Artistic Director</span>
+
+                <p>
+
+                    ISTD-certified, leading LDAB since founding the
+                    academy in 2016.
+                    <a href="#director">View Full Profile</a>
+
+                </p>
+
+            </div>
 
         </div>
 
-        <div class="instructor-card">
+        <div class="instructor-card" tabindex="0">
 
-            <div class="instructor-photo">Photo</div>
+            <div class="instructor-photo"  data-img="https://drive.google.com/file/d/1VLqfowLwt1NerwpQHkGLnCjEGDtGO3yZ/view?usp=drive_link">Vrindha photo</div>
 
             <div class="instructor-info">
 
@@ -918,9 +1251,9 @@ INSTRUCTORS
 
         </div>
 
-        <div class="instructor-card">
+        <div class="instructor-card" tabindex="0">
 
-            <div class="instructor-photo">Photo</div>
+            <div class="instructor-photo" data-img="https://drive.google.com/file/d/1bdhblvgm8v8a1hZmT1AdYl_WGZ-XQ6YI/view?usp=drive_link">Ira Pawar photo</div>
 
             <div class="instructor-info">
 
@@ -944,9 +1277,9 @@ INSTRUCTORS
 
         </div>
 
-        <div class="instructor-card">
+        <div class="instructor-card" tabindex="0">
 
-            <div class="instructor-photo">Photo</div>
+            <div class="instructor-photo" style="--ratio:16/10" data-pos="center bottom" data-img="https://drive.google.com/file/d/1PTBKTQb6s9q4j934E-Xn2ympWL0CD0Dt/view?usp=sharing">Jiyana Sanghvi photo</div>
 
             <div class="instructor-info">
 
@@ -970,9 +1303,9 @@ INSTRUCTORS
 
         </div>
 
-        <div class="instructor-card">
+        <div class="instructor-card" tabindex="0">
 
-            <div class="instructor-photo">Photo</div>
+            <div class="instructor-photo" style="--ratio:16/10" data-pos="center top" data-img="https://drive.google.com/file/d/1lJbLNEM5LzY154kMVqqdBuXEgWXZ18I2/view?usp=sharing">Ashreta Lekhi photo</div>
 
             <div class="instructor-info">
 
@@ -994,11 +1327,31 @@ INSTRUCTORS
             </div>
 
         </div>
+        <div class="instructor-card" tabindex="0">
+
+            <div class="instructor-photo"  data-img="https://drive.google.com/file/d/1R1D3dnNo97iWN7XNGz3-LdHd42jTKaRT/view?usp=drive_link">Jane photo</div>
+
+            <div class="instructor-info">
+
+                <h3>Jane</h3>
+
+                <span class="instructor-role">Student Instructor</span>
+
+                <p>
+
+                    An aspiring interior designer, she has always had a deep passion for both visual and performing arts. 
+                    Her love for ballet began at a young age, at the age of 19, she joined Les Danseuses Academy of Ballet in Pune, proving that starting ballet later in life is no barrier when driven by passion. 
+                    She had the opportunity to perform in her first recital in 2024 and has since continued to grow as a dancer.
+                    She has earned Distinction & Honours in classical ballet examinations under the international boards ISTD and CSTD.
+                </p>
+
+            </div>
+
+        </div>
 
     </div>
 
 </section>
-
 
 <!-- ===========================
 VISITING FACULTY
@@ -1016,33 +1369,17 @@ VISITING FACULTY
 
     </p>
 
-    <div class="faculty-grid">
+    <div class="faculty-grid visit-grid">
 
-        <div class="faculty-card">
+        <div class="visit-card">
 
-            <div class="faculty-photo">Photo</div>
+            <div class="visit-photo" data-img="https://drive.google.com/file/d/1WGuWIRitkT8YaEKuC61WDkWJjbkCpyyd/view?usp=drive_link">Manish Chauhan photo</div>
 
-            <div class="faculty-info">
+            <div class="visit-content">
 
-                <h4>Manish Chauhan</h4>
+                <h3>Manish Chauhan</h3>
 
-                <span>IMCD · Yeh Ballet / Call Me Dancer</span>
-
-                <p>Guest workshops and masterclasses at LDAB.</p>
-
-            </div>
-
-        </div>
-
-        <div class="faculty-card">
-
-            <div class="faculty-photo">Photo</div>
-
-            <div class="faculty-info">
-
-                <h4>Kokila Hariram</h4>
-
-                <span>Academy of Modern Danse</span>
+                <span class="visit-role">IMCD · Yeh Ballet / Call Me Dancer</span>
 
                 <p>Guest workshops and masterclasses at LDAB.</p>
 
@@ -1050,15 +1387,15 @@ VISITING FACULTY
 
         </div>
 
-        <div class="faculty-card">
+        <div class="visit-card">
 
-            <div class="faculty-photo">Photo</div>
+            <div class="visit-photo" data-img="https://drive.google.com/file/d/1GgooTlAj-2UUttq5dPKcqqlkbncsc1lL/view?usp=drive_link">Kokila Hariram photo</div>
 
-            <div class="faculty-info">
+            <div class="visit-content">
 
-                <h4>Suhaili</h4>
+                <h3>Kokila Hariram</h3>
 
-                <span>Aurora School of Dance, Malaysia</span>
+                <span class="visit-role">Academy of Modern Danse</span>
 
                 <p>Guest workshops and masterclasses at LDAB.</p>
 
@@ -1066,15 +1403,31 @@ VISITING FACULTY
 
         </div>
 
-        <div class="faculty-card">
+        <div class="visit-card">
 
-            <div class="faculty-photo">Photo</div>
+            <div class="visit-photo" data-img="https://drive.google.com/file/d/115HmJTzRAoq9HWUGAGHXUd9coVrcjO64/view?usp=drive_link">Suhaili photo</div>
 
-            <div class="faculty-info">
+            <div class="visit-content">
 
-                <h4>Suraya Kamil</h4>
+                <h3>Suhaili</h3>
 
-                <span>Aurora School of Dance</span>
+                <span class="visit-role">Aurora School of Dance, Malaysia</span>
+
+                <p>Guest workshops and masterclasses at LDAB.</p>
+
+            </div>
+
+        </div>
+
+        <div class="visit-card">
+
+            <div class="visit-photo" data-img="https://drive.google.com/file/d/1RFSd5eo9Gem68CcBUOGu3_drdmd1E-sD/view?usp=drive_link">Suraya Kamil photo</div>
+
+            <div class="visit-content">
+
+                <h3>Suraya Kamil</h3>
+
+                <span class="visit-role">Aurora School of Dance</span>
 
                 <p>Examined Neha's ISTD Teacher's certification in Kuala Lumpur, and continues to guest-teach at LDAB.</p>
 
@@ -1082,15 +1435,15 @@ VISITING FACULTY
 
         </div>
 
-        <div class="faculty-card">
+        <div class="visit-card">
 
-            <div class="faculty-photo">Photo</div>
+            <div class="visit-photo" data-img="https://drive.google.com/file/d/1Ca7IgZapkS69WQ0bOAf6UksYA9V928S2/view?usp=drive_link">Bangkok City Ballet photo</div>
 
-            <div class="faculty-info">
+            <div class="visit-content">
 
-                <h4>Bangkok City Ballet</h4>
+                <h3>Bangkok City Ballet</h3>
 
-                <span>Partner Academy · Thailand</span>
+                <span class="visit-role">Partner Academy · Thailand</span>
 
                 <p>Guest workshops and masterclasses at LDAB.</p>
 
@@ -1098,15 +1451,15 @@ VISITING FACULTY
 
         </div>
 
-        <div class="faculty-card">
+        <div class="visit-card">
 
-            <div class="faculty-photo">Photo</div>
+            <div class="visit-photo" data-img="https://drive.google.com/file/d/1XTcnABYRiB12WaQPnaelPOEtAN-3n88V/view?usp=drive_link">Marlupi Dance Academy photo</div>
 
-            <div class="faculty-info">
+            <div class="visit-content">
 
-                <h4>Marlupi Dance Academy</h4>
+                <h3>Marlupi Dance Academy</h3>
 
-                <span>Partner Academy · Malaysia</span>
+                <span class="visit-role">Partner Academy · Malaysia</span>
 
                 <p>Guest workshops and masterclasses at LDAB.</p>
 
@@ -1159,7 +1512,7 @@ CALL TO ACTION
 
         <div class="cta-image">
 
-            <div class="cta-placeholder">
+            <div class="cta-placeholder" data-img="https://drive.google.com/file/d/1Ulo3sWxhM7u1mtt4urSp3c8mMMq5AweW/view?usp=drive_link">
 
                 Instructor & Student Image
 
@@ -1237,11 +1590,10 @@ FOOTER
 </footer>
 
 <!--
-Certifications dropdown: on desktop this opens on hover (pure CSS).
-On mobile, taps don't trigger :hover, so this adds tap-to-open —
-first tap reveals the submenu, tapping a submenu item navigates,
-tapping elsewhere closes it. The "Certifications" link itself still
-navigates to certifications.html on desktop or on a second tap.
+Certifications dropdown: on desktop it opens on hover (pure CSS).
+On mobile, taps don't trigger :hover, so tapping "Certifications"
+toggles the submenu; tapping a submenu item navigates, and tapping
+elsewhere closes it. "Certifications" itself is not a link.
 -->
 <script>
 document.addEventListener('DOMContentLoaded', function () {
@@ -1254,11 +1606,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     trigger.addEventListener('click', function (e) {
 
-        if (window.innerWidth <= 768 && !dropdown.classList.contains('open')) {
+        if (window.innerWidth <= 768) {
 
             e.preventDefault();
 
-            dropdown.classList.add('open');
+            dropdown.classList.toggle('open');
 
         }
 
@@ -1275,6 +1627,143 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 });
+</script>
+
+<script>
+/* Image slots: put a Google Drive link in data-img="" on any placeholder.
+   Drive share links are converted automatically. */
+(function () {
+
+    var css = [
+        '[data-img]{position:relative;}',
+        '[data-img].img-filled{padding:0 !important;border:0 !important;background:none !important;overflow:hidden;}',
+        '[data-img].img-filled img{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;object-position:var(--pos,center);transform:scale(var(--zoom,1));transform-origin:var(--pos,center);display:block;}',
+        '[data-img][data-img-error]{flex-direction:column;text-align:center;}',
+        '[data-img][data-img-error]::after{content:"Image could not load - check the link and Drive sharing";display:block;margin-top:8px;font-size:12px;color:#b3402f;}'
+    ].join('');
+
+    var style = document.createElement('style');
+    style.textContent = css;
+    document.head.appendChild(style);
+
+    var URL_RE = /^https?:\/\//;
+
+    // Returns a list of addresses to try, best first.
+    function candidates(src) {
+
+        var m = src.match(/drive\.google\.com\/file\/d\/([\w-]+)/) ||
+                src.match(/drive\.google\.com\/(?:open|uc)\?(?:[^#]*&)?id=([\w-]+)/) ||
+                src.match(/lh3\.googleusercontent\.com\/d\/([\w-]+)/);
+
+        if (m) {
+            return [
+                'https://lh3.googleusercontent.com/d/' + m[1],
+                'https://drive.google.com/thumbnail?id=' + m[1] + '&sz=w1600',
+                'https://drive.google.com/uc?export=view&id=' + m[1]
+            ];
+        }
+
+        return [src];
+    }
+
+    function fill(slot) {
+
+        var raw = (slot.getAttribute('data-img') || '').trim();
+        var label = (slot.textContent || '').trim();
+
+        // Forgiving: if a link was pasted as the slot's text instead of
+        // into data-img, use it.
+        if (!raw && URL_RE.test(label)) {
+            raw = label;
+            label = '';
+        }
+
+        if (!raw) return;
+
+        var list = candidates(raw);
+        var tried = [];
+        var pos = slot.getAttribute('data-pos');
+
+        if (pos) slot.style.setProperty('--pos', pos);
+
+        function attempt(i) {
+
+            if (i >= list.length) {
+                console.warn('Image slot: could not load any of these addresses. ' +
+                    'Check the file is shared as "Anyone with the link can view".', tried);
+                slot.setAttribute('data-img-error', '1');
+                return;
+            }
+
+            var img = new Image();
+
+            // Some hosts get Drive images blocked because of the referrer.
+            img.referrerPolicy = 'no-referrer';
+            img.alt = URL_RE.test(label) ? '' : label;
+
+            if (pos) img.style.objectPosition = pos;
+
+            img.onload = function () {
+                slot.textContent = '';
+                slot.classList.add('img-filled');
+                slot.appendChild(img);
+            };
+
+            img.onerror = function () {
+                tried.push(list[i]);
+                attempt(i + 1);
+            };
+
+            img.src = list[i];
+        }
+
+        attempt(0);
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+
+        document.querySelectorAll('[data-img]').forEach(fill);
+
+    });
+
+})();
+</script>
+
+<script>
+/* Instructor cards: on touch screens a tap opens/closes the details. */
+(function () {
+
+    if (!window.matchMedia('(hover: none)').matches) return;
+
+    var cards = document.querySelectorAll('.instructor-card');
+
+    function closeAll() {
+        cards.forEach(function (c) { c.classList.remove('is-open'); });
+    }
+
+    cards.forEach(function (card) {
+
+        card.addEventListener('click', function (e) {
+
+            if (e.target.closest('a')) return;
+
+            var wasOpen = card.classList.contains('is-open');
+
+            closeAll();
+
+            if (!wasOpen) card.classList.add('is-open');
+
+        });
+
+    });
+
+    document.addEventListener('click', function (e) {
+
+        if (!e.target.closest('.instructor-card')) closeAll();
+
+    });
+
+})();
 </script>
 
 </body>
