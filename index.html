@@ -30,6 +30,7 @@ just About Us.
 
 .dropdown-trigger{
     display:inline-flex;
+    cursor:pointer;
     align-items:center;
     gap:6px;
 }
@@ -145,32 +146,40 @@ just About Us.
     text-align:center;
 }
 }
+
+/*==================================================
+TESTIMONIALS — "SEE MORE" BUTTON
+Same Explore More button (same markup and icon), just a
+smaller size, centred under the review cards.
+==================================================*/
+
+.testimonials-cta{
+    text-align:center;
+    margin-top:50px;
+}
+
+.explore-btn.explore-btn-small{
+    padding:10px 20px;
+    gap:10px;
+    font-size:14px;
+}
+
+.explore-btn-small .shoe-icon{
+    width:30px;
+    height:30px;
+}
 </style>
 </head>
 
 <body>
 
-<!-- ===========================
-TOP HEADER
-=========================== -->
+<!-- ===================================
+LOGO
+=================================== -->
 
-<div class="top-header">
+<div class="logo-wrap">
 
-<div class="logo-panel">
-
-<img src="images/logo.png" alt="LDAB Logo">
-
-</div>
-
-<div class="header-info">
-
-<h2>Les Danseuses Academy of Ballet</h2>
-
-<div class="header-line"></div>
-
-<p>Vision / Mission Statement</p>
-
-</div>
+<img src="https://lh3.googleusercontent.com/d/1RoMjfZqkDdOmf64hd-ftinPytb_ydGoz" alt="LDAB Logo">
 
 </div>
 
@@ -464,42 +473,7 @@ TESTIMONIALS
 
             <p>
 
-                "The instructors are incredibly patient and
-                professional. My daughter has become more
-                confident both inside and outside the studio."
-
-            </p>
-
-            <div class="testimonial-person">
-
-                <div class="person-photo">
-
-                    Parent
-
-                </div>
-
-                <div>
-
-                    <h4>Mrs. Sharma</h4>
-
-                    <span>Parent</span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="testimonial-card">
-
-            <div class="stars">★★★★★</div>
-
-            <p>
-
-                "LDAB has given me opportunities to perform,
-                compete and grow as a dancer. Every class is
-                inspiring."
+                "LDAB is a wonderful ballet school . With an amazing ballet teacher .That teaches ballet in a fun yet diciplined way."
 
             </p>
 
@@ -513,7 +487,7 @@ TESTIMONIALS
 
                 <div>
 
-                    <h4>Ananya</h4>
+                    <h4>Ruchika Panjwani</h4>
 
                     <span>Student</span>
 
@@ -530,9 +504,40 @@ TESTIMONIALS
 
             <p>
 
-                "Beautiful environment, structured learning and
-                internationally recognised training. We couldn't
-                ask for a better academy."
+                "I've been dancing with Ldab for 5 years now and I've really loved every minute of it.
+                Ive gotten to really flourish here as a dancer and had so many opportunities.
+                I'm really grateful to miss neha and Ldab for everything it's given me 💗💗"
+
+            </p>
+
+            <div class="testimonial-person">
+
+                <div class="person-photo">
+
+                    Student
+
+                </div>
+
+                <div>
+
+                    <h4>Ashreta Lekhi</h4>
+
+                    <span>Student</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="testimonial-card">
+
+            <div class="stars">★★★★★</div>
+
+            <p>
+
+                "My daughter thoroughly enjoyed her class..Neha is an amazing and patient teacher...My daughter love's her."
 
             </p>
 
@@ -546,7 +551,7 @@ TESTIMONIALS
 
                 <div>
 
-                    <h4>Mr. Kapoor</h4>
+                    <h4>Vinay Abrol</h4>
 
                     <span>Parent</span>
 
@@ -555,6 +560,26 @@ TESTIMONIALS
             </div>
 
         </div>
+
+    </div>
+
+    <!-- See more: opens the academy's Google reviews in a new tab.
+         To use the direct Google Business review link instead,
+         replace the href below with it. -->
+    <div class="testimonials-cta">
+
+        <a href="https://www.google.com/search?q=les+danseuses+academy+reviews#lrd=0x3bc2c05a98863779:0x6912c80369dd86ad,1,,,,"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="explore-btn explore-btn-small">
+
+            <span class="btn-text">See more</span>
+
+            <img src="https://lh3.googleusercontent.com/d/1Is9-U_lHXlmMlglJPod_RoRmUMo75-0s"
+            class="shoe-icon"
+            alt="Pointe Shoe">
+
+        </a>
 
     </div>
 
@@ -673,11 +698,10 @@ FOOTER
 
 </footer>
 <!--
-Certifications dropdown: on desktop this opens on hover (pure CSS).
-On mobile, taps don't trigger :hover, so this adds tap-to-open —
-first tap reveals the submenu, tapping a submenu item navigates,
-tapping elsewhere closes it. The "Certifications" link itself still
-navigates to certifications.html on desktop or on a second tap.
+Certifications dropdown: on desktop it opens on hover (pure CSS).
+On mobile, taps don't trigger :hover, so tapping "Certifications"
+toggles the submenu; tapping a submenu item navigates, and tapping
+elsewhere closes it. "Certifications" itself is not a link.
 -->
 <script>
 document.addEventListener('DOMContentLoaded', function () {
@@ -690,11 +714,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     trigger.addEventListener('click', function (e) {
 
-        if (window.innerWidth <= 768 && !dropdown.classList.contains('open')) {
+        if (window.innerWidth <= 768) {
 
             e.preventDefault();
 
-            dropdown.classList.add('open');
+            dropdown.classList.toggle('open');
 
         }
 

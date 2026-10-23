@@ -32,6 +32,7 @@ every page instead of repeated per-page.
 
 .dropdown-trigger{
     display:inline-flex;
+    cursor:pointer;
     align-items:center;
     gap:6px;
 }
@@ -219,6 +220,51 @@ a competition doesn't have a link yet.
     letter-spacing:.3px;
 }
 
+/*==================================================
+COMPETITION PHOTOS
+Every photo fills the whole image side of its card, whatever
+its shape: it is cropped to fit, never stretched or left with
+gaps. To adjust one photo, set these on its <img>:
+  style="--pos:center top"   which part stays in view
+  style="--zoom:1.3"         zoom in (1 = normal)
+Both can be combined: style="--pos:center top;--zoom:1.2"
+==================================================*/
+
+.certifications .certification-image{
+    align-self:stretch;
+    position:relative;
+    min-height:360px;
+}
+
+.certifications .certification-image img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    max-width:none;
+    object-fit:cover;
+    object-position:var(--pos, center);
+    transform:scale(var(--zoom, 1));
+    transform-origin:var(--pos, center);
+}
+
+@media(max-width:992px){
+
+.certifications .certification-image{
+    min-height:340px;
+    padding:0;
+}
+
+}
+
+@media(max-width:768px){
+
+.certifications .certification-image{
+    min-height:280px;
+}
+
+}
+
 </style>
 
 <!-- ===================================
@@ -382,7 +428,7 @@ APDC
 
 <div class="certification-image">
 
-<div class="certification-placeholder">APDC Image</div>
+<img src="https://lh3.googleusercontent.com/d/1aNEqWItJ50crzOPkqi8P0cKQfgZQA7cM" alt="APDC">
 
 </div>
 
@@ -424,7 +470,7 @@ BTP
 
 <div class="certification-image">
 
-<div class="certification-placeholder">BTP Image</div>
+<img src="https://lh3.googleusercontent.com/d/1Z0gKydQ0CRDwxN3CbCTpZdK3gh9CUQEn" alt="BTP">
 
 </div>
 
@@ -441,7 +487,18 @@ adjudicators.
 
 </p>
 
-<span class="link-pending">Link coming soon</span>
+<a
+href="https://vic.comdance.org/"
+target="_blank"
+class="explore-btn">
+
+<span class="btn-text">Explore More</span>
+
+<img
+src="https://lh3.googleusercontent.com/d/1Is9-U_lHXlmMlglJPod_RoRmUMo75-0s"
+class="shoe-icon">
+
+</a>
 
 </div>
 
@@ -455,7 +512,7 @@ FIBC
 
 <div class="certification-image">
 
-<div class="certification-placeholder">FIBC Image</div>
+<img src="https://lh3.googleusercontent.com/d/10yoKm3unhxHjpAT9XKcoiFh51w5vVnQN" alt="FIBC">
 
 </div>
 
@@ -497,7 +554,7 @@ IAF
 
 <div class="certification-image">
 
-<div class="certification-placeholder">IAF Image</div>
+<img src="https://lh3.googleusercontent.com/d/1psap9i-zdD1WjOXqoIEO_MTg15zbemAT" alt="IAF">
 
 </div>
 
@@ -516,6 +573,47 @@ competing as soloists, duos, trios and groups.
 
 <a
 href="https://share.google/Z2gDkhEcZeONDTENC"
+target="_blank"
+class="explore-btn">
+
+<span class="btn-text">Explore More</span>
+
+<img
+src="https://lh3.googleusercontent.com/d/1Is9-U_lHXlmMlglJPod_RoRmUMo75-0s"
+class="shoe-icon">
+
+</a>
+
+</div>
+
+</div>
+
+<!-- ===================================
+IYDC
+=================================== -->
+
+<div class="certification-row">
+
+<div class="certification-image">
+
+<img src="https://lh3.googleusercontent.com/d/15cQzzWhE2txxvPUBsb6w-A80avWZnPs7" alt="IYDC">
+
+</div>
+
+<div class="certification-content">
+
+<h2>IYDC</h2>
+
+<p>
+
+The International Youth Dance Competition (IYDC) is brought to you by International Youth Dance Company.
+This event is set to encourage young aspiring dancers from across the Globe to hone their
+skills and to showcase their talent through a series of workshops and dance competitions.
+
+</p>
+
+<a
+href="https://www.iydc.co/"
 target="_blank"
 class="explore-btn">
 
@@ -648,11 +746,10 @@ FOOTER
 </footer>
 
 <!--
-Certifications dropdown: on desktop this opens on hover (pure CSS).
-On mobile, taps don't trigger :hover, so this adds tap-to-open —
-first tap reveals the submenu, tapping a submenu item navigates,
-tapping elsewhere closes it. The "Certifications" link itself still
-navigates to certifications.html on desktop or on a second tap.
+Certifications dropdown: on desktop it opens on hover (pure CSS).
+On mobile, taps don't trigger :hover, so tapping "Certifications"
+toggles the submenu; tapping a submenu item navigates, and tapping
+elsewhere closes it. "Certifications" itself is not a link.
 -->
 <script>
 document.addEventListener('DOMContentLoaded', function () {
@@ -665,11 +762,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     trigger.addEventListener('click', function (e) {
 
-        if (window.innerWidth <= 768 && !dropdown.classList.contains('open')) {
+        if (window.innerWidth <= 768) {
 
             e.preventDefault();
 
-            dropdown.classList.add('open');
+            dropdown.classList.toggle('open');
 
         }
 
